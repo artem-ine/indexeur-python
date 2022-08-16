@@ -33,7 +33,7 @@ def pilote(page, idx, current_depth=0, max_depth=2):
                 # on utilise la récursivité pour traiter les liens qu'on a déjà trouvés
                 pilote(link, index, current_depth=current_depth + 1, max_depth=max_depth)
             # avec try/except on "debug" en live afin d'éviter qu'une erreur empêche l'indexage
-            # l'indexe suivra le message indiquant que des URLs ont été ignorés
+            # l'index suivra le message indiquant que des URLs ont été ignorés
             # par clarté, on peut éviter de print un message
             # j'ai choisi de le print pour montrer mon cheminement
             except:
@@ -43,8 +43,7 @@ def pilote(page, idx, current_depth=0, max_depth=2):
                 indexe(idx, ligne.split(), i)
 
 
-# les fonctions suivantes ont seulement été modifiées pour suivre pilote
-# mot est devenu link, etc.
+# les fonctions suivantes permettent d'annexer les liens ligne par ligne
 def ajoute(idx, link, ligne):
     if link not in idx:
         idx[link] = []
@@ -70,3 +69,4 @@ pilote("https://docs.python.org/3/", index)
 pilote("https://developer.mozilla.org/en-US/", index)
 prd(index)
 # mycode
+# indexeur python
