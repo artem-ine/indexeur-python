@@ -8,8 +8,8 @@ def pilote(page, idx, current_depth=0, max_depth=2):
     soup = BeautifulSoup(html_page, "html.parser")
     links = []
     # limite le nombre de liens qu'on va indexer, modifiable si besoin
-    # 3 pour que ça aille plus vite, mais ça marche avec 5, 10, etc :)
-    max_links_per_page = 3
+    # 50 pour tester sur un nombre plus important
+    max_links_per_page = 50
     # grâce à beautifulsoup on récupère les liens qui nous intéressent
     for link in soup.find_all('a', href=True):
         href = link.get('href')
